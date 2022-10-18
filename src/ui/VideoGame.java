@@ -12,17 +12,21 @@ public class VideoGame{
         gamecontroller = new GameController();
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args){ //Start of main method.
         VideoGame main = new VideoGame(); 
 
         int option = -1; 
-        do{
+        do{ //Start of the cycle
             option = main.getOptionShowMenu(); 
             main.executeOption(option);
 
-        }while(option != 0);
-    }
+        }while(option != 0); //End of the cycle.
 
+    } //End of main method.
+
+    /** getOptionShowMenu: It is responsible for obtaining the menu of options for interaction with the user.
+    * @return Option: int => This is the option with which you interact with the program.
+    */
     public int getOptionShowMenu(){
         int option = 0; 
         printMenu();
@@ -32,6 +36,8 @@ public class VideoGame{
         return option; 
     }
 
+    /** printMenu: It is in charge of showing the user the game options ribbon.
+     */ 
     public void printMenu(){
         System.out.print(
             "\nBienvenido, administrador del videojuego, que desea hacer hoy: \n"+	
@@ -51,6 +57,9 @@ public class VideoGame{
             "Opcion: ");  
     }
 
+    /** validateReader: It is responsible for validating that the user has entered a numerical entry in the options.
+    * @return option: int => The option selected by the user.
+    */
     public int validateReader(){
         int option = 0; 
 
@@ -65,14 +74,13 @@ public class VideoGame{
         return option; 
     }
 
+    /** executeOption: It is in charge of executing the option requested by the user.
+    */
     public void executeOption(int option){
 
         switch(option){
             case 1:
 
-                String msgFoundedSpace = null;
-                int selectedLevel = 0;
-                double numFix = 0.0;
                 boolean flag = gamecontroller.playerAvailableSpaces();
                 if(flag){
                     System.out.println("\nHa iniciado, registro de jugador");
@@ -275,7 +283,7 @@ public class VideoGame{
 
                 System.out.println("");
                 String msgBestEnemy = null;
-                System.out.println(gamecontroller.getBestScoringEnemy());
+                System.out.println(gamecontroller.getMaxScoringEnemy());
                 String msgValBestEnemy = null;
                 int enemyId = 0;
 
